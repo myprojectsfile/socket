@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <blockquote class="blockquote text-center">
+      <p class="mb-0">welcome {{username}}</p>
+    </blockquote>
+  </div>
+
+  <hr>
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-4">
+      <h5>connected users</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-3">
+      <ul>
+        <li *ngFor="let user of connectedUsers">
+          {{user.username}}
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-sm-6 col-xs-6">
+      <form class="form-inline">
+        <div class="form-group">
+          <input type="text" name="message" id="message" class="form-control form-control-sm" [(ngModel)]="message" placeholder="message">
+        </div>
+        <button type="button" class="btn btn-success btn-sm" style="margin-left: 10px;" (click)="sendMessage()">send</button>
+      </form>
+    </div>
+    <div class="col-sm-6 col-xs-6">
+      <div class="well">
+        <ul>
+          <li *ngFor="let messageItem of messages">{{messageItem.from}} say {{messageItem.message}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
